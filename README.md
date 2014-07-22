@@ -4,7 +4,7 @@
 
 In the `Gemfile`:
 
-    gem "cdn_image_helper", :git => "git://github.com/techbang/cdn_image_helper.git", :tag => "0.0.2" 
+    gem "cdn_image_helper", :git => "git://github.com/techbang/cdn_image_helper.git", :tag => "0.0.2"
 
 In an initilizer, e.g. `config/initializers/asset_host.rb`:
 

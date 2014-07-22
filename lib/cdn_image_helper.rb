@@ -2,11 +2,11 @@ require "cdn_image_helper/version"
 require 'cdn_image_helper/railtie' if defined?(Rails)
 
 module CdnImageHelper
-  
+
   class <<self
     attr_accessor :app_url, :cdn_host
   end
-  
+
   def render_with_cdn_images(text, size = :medium)
     return text unless text.respond_to?(:gsub)
 
@@ -44,5 +44,5 @@ module CdnImageHelper
     cdn_host = cdn_host % cdn_number
     "#{cdn_host}#{path}"
   end
-  
+
 end
