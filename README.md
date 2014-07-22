@@ -4,12 +4,27 @@
 
 In the `Gemfile`:
 
-    gem "cdn_image_helper", :git => "git://github.com/techbang/cdn_image_helper.git", :tag => "0.0.2" 
+    gem "cdn_image_helper", :git => "git://github.com/techbang/cdn_image_helper.git", :tag => "0.0.2"
 
 In an initilizer, e.g. `config/initializers/asset_host.rb`:
 
     CdnImageHelper.app_url  = "http://www.techbang.com"
     CdnImageHelper.cdn_host = "http://cdn%d.techbang.com"
+
+## Changelog
+
+### 0.0.3
+
+* `render_with_cdn_images` helper now defually does not resize images
+
+### 0.0.2
+
+* Match *.tw and escape dots
+* The same path should have the same cdn host
+
+### 0.0.1
+
+* extract cdn_image_helper from techbang
 
 ## License
 
