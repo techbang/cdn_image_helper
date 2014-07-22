@@ -7,13 +7,13 @@ module CdnImageHelper
     attr_accessor :app_url, :cdn_host
   end
 
-  def render_with_cdn_images(text, size = :medium)
+  def render_with_cdn_images(text, size = nil)
     return text unless text.respond_to?(:gsub)
 
     escaped_app_url = Regexp.escape(CdnImageHelper.app_url)
     text.gsub(/(href|src)="(#{escaped_app_url}(\.tw)?)?\/system\/images\/(\d+)\/(\w+)\//) do |match|
       link_type, host, tw, id, scale = $1, $2, $3, $4, $5
-      new_size = (link_type == "href") ? :original : size
+      new_size = (link_type == "href") ? :original : (size || scale)
       path = "/system/images/#{id}/#{new_size}/"
       %|#{link_type}="#{Rails.env.production? ? cdn_url_for(path) : path}|
     end
